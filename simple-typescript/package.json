@@ -1,0 +1,20 @@
+{
+  "name": "simple-typescript",
+  "version": "1.0.0",
+  "main": "dist/app.js",
+  "license": "MIT",
+  "author": "Yash Kumar Verma <yk.verma2000@gmail.com>",
+  "repository": "git@github.com:UniAuth/example-nodejs.git",
+  "scripts": {
+    "start": "node dist/app.js",
+    "start:dev": "nodemon --watch 'src/app.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/app.ts"
+  },
+  "dependencies": {
+    "@uniauth/express-middleware": "^1.0.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7",
+    "ts-node": "^9.1.1"
+  }
+}
