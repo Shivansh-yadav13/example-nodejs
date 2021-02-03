@@ -1,5 +1,5 @@
-import * as Auth from "@uniauth/express-middleware";
-import * as express from "express";
+const Auth = require("@uniauth/express-middleware");
+import express from "express";
 const app = express();
 
 /**
