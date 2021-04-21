@@ -1,0 +1,59 @@
+name: Continuous Integration
+
+# This action works with pull requests and pushes
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-typescript:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          # Make sure the actual branch is checked out when running on pull requests
+          ref: ${{ github.head_ref }}
+
+      - name: setup node version
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - name: npm install
+        working-directory: ./simple-typescript
+        run: npm install
+
+      - name: npm test and build
+        working-directory: ./simple-typescript
+        run: |
+          npm run test
+          npm run build
+
+  build-javascript:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          # Make sure the actual branch is checked out when running on pull requests
+          ref: ${{ github.head_ref }}
+
+      - name: setup node version
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - name: npm install
+        working-directory: ./simple-javascript
+        run: npm install
+
+      - name: npm test and build
+        working-directory: ./simple-javascript
+        run: |
+          npm run test
+          npm run build
