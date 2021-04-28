@@ -8,7 +8,8 @@
   "scripts": {
     "start": "node app.js",
     "start:dev": "nodemon app.js",
-    "test": "mocha --exit"
+    "test": "mocha --exit",
+    "build": "echo \"SKIP\""
   },
   "dependencies": {
     "@uniauth/express-middleware": "^1.0.1",
